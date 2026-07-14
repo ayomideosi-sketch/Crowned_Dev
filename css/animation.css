@@ -1,3 +1,27 @@
+.menu-btn.open span:nth-child(1){
+    transform: rotate(45deg) translateY(12px);
+}
+.menu-btn.open span:nth-child(2){
+    opacity: 0;
+    transform: translateX(-20px);
+}
+.menu-btn.open span:nth-child(3){
+    transform: rotate(-45deg) translateY(-12px);
+}
+.menu-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 9999999;
+}
+.menu-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
 .custom-cursor{
     position: fixed;
     width: 24px;
@@ -6,7 +30,7 @@
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    z-index: 9999;
+    z-index: 1000000000000;
     box-shadow: 0 0 10px #00f5ff,
     0 0 25px #050816,
     0 0 50px #ffb300;
@@ -17,10 +41,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #00f5ff, #7c3aed);
-    z-index: 999999;
+    background: linear-gradient(90deg, #00f7ff, #7c3aed);
+    z-index: 100000000;
 }
 .scroll-top{
     position: fixed;
@@ -30,10 +54,10 @@
     height: 55px;
     border: none;
     border-radius: 50%;
-    background: linear-gradient(135deg, #00f5ff, #7c3aed);
+    background: linear-gradient(135deg, #00f7ff, #7c3aed);
     color: #fff;
     font-size: 1.3rem;
-    cursor: pointer;
+    cursor: none;
     opacity: 0;
     visibility: hidden;
     transition: 0.4s;
@@ -46,38 +70,65 @@
 .floating-header{
     background: rgba(5, 8, 22, 0.85);
     backdrop-filter: blur(20px);
-    box-shadow: 0 10px 30px rgba(0, 245, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 247, 255, 0.042);
 }
 nav a.active{
     color: #00f5ff;
 }
 /* Light Mode */
-body.light-mode{
-    color: #050816;
-    transition: 3s;
-}
-body.light-mode .loader-card{
-    background: rgba(255, 255, 255, 0.6);
-}
 body.light-mode .bg{
-    background: rgba(255, 255, 255, 0.6);
+    background: #f4f7fb95;
     color: #0f172a;
 }
 body.light-mode header{
-    background: rgba(255, 255, 255, 0.3);
+    background: transparent;
 }
+body.light-mode .floating-header{
+    box-shadow: 0 10px 30px #05081644;
+}
+body.light-mode body, .bg, .card, .grid, .glow, .card-img{
+    color: #050816;
+    transition: 0.59s;
+}
+/* body.light-mode nav a {
+    color: #fff;
+} */
 body.light-mode nav a{
     color: #0f172a;
+}
+body.light-mode nav a:hover span{
+    /* color: #dae4fd; */
+    background: rgba(124, 58, 237, 0.04);
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+body.light-mode .btn1{
+    color: #f6f6f795;
+}
+body.light-mode .glow{
+    background: radial-gradient(circle, rgba(24, 25, 25, 0.173), transparent);
+}
+body.light-mode #hero p{
+    color: #475569;
+}
+body.light-mode #Contact .contact-features span{
+    color: #d1d3d7;
+}
+body.light-mode .loader-card{
+    background: rgba(255, 255, 255, 0.6);
 }
 body.light-mode .card{
     background: rgba(255, 255, 255, 0.5);
 }
 body.light-mode #about p{
-    color: #0f172a;
+    color: #475569;
+}
+body.light-mode #Contact .contact-features div{
+    border: 1px solid #64748b;
 }
 body.light-mode .scroll-top{
-    color: #0f172a
-    ;
+    color: #0f172a;
+    background: linear-gradient(127deg, #00f7ff, #7c3aed, #fff);
 }
 body.light-mode .secondary{
     border: 1px solid #475569;
@@ -87,87 +138,172 @@ body.light-mode .skill{
     color: #0f172a;
 }
 body.light-mode p{
-    color: #0f172a;
+    color: #475569;
 }
 body.light-mode footer{
     color: #64748b;
 }
 body.light-mode .grid{
-    background-image: linear-gradient(rgba(225, 225, 225, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(225, 225, 225, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(240deg, rgba(35, 34, 34, 0.04) 20px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 225, 225, 0.04) 1px, transparent 1px);
 }
-
-.contact-section{
-    min-height: 100vh;
+body.light-mode .card-img{
+    background: linear-gradient(135deg, #0f172a, #7c3aed03);
+}
+body.light-mode .card::before{
+    background: transparent;
+}
+body.light-mode .card-img::before{
+    background: #64748b41;
+}
+body.light-mode .glass-orb{
+    background: #ffffff19;
+}
+body.light-mode .contact-features div::before{
+    background: linear-gradient(135deg, #0f172a, #7b2cff, #0f172a);
+}
+/* Contact */
+.contact-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(18px);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease;
+}
+.contact-modal.active{
+    opacity: 1;
+    visibility: visible;
 }
 .contact-card{
-    width: 500px;
-    padding: 50px;
     position: relative;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.1);
-    backdrop-filter: blur(25px);
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(30px);
     border-radius: 30px;
-    transform-style: preserve-3d;
-    transition: 0.5s;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: 0.5s ease;
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4),
+    inset 0 0 20px rgba(255,255,255,.05);
 }
-
-.contact-card:hover{
-    transform: rotateX(10deg)
-    rotateY(-10deg);
+.contact-modal.active .contact-card{
+    transform: scale(1);
 }
-.contact-glow{
+.contact-card h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.contact-card p{
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 35px;
+}
+.orb{
     position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, #00f5ff, #7c3aed, #ff00ff);
-    filter: blur(80px);
-    opacity: 0.5;
-    z-index: -1;
+    border-radius: 50%;
+    filter: blur(70px);
+}
+.orb1{
+    width: 180px;
+    height: 180px;
+    background: #00f5ff;
+    top: -60px;
+    left: -60px;
+}
+.orb2{
+    width: 200px;
+    height: 200px;
+    background: #7b2fff;
+    bottom: -80px;
+    right: -80px;
 }
 .input-box{
     position: relative;
-    margin: 35px 0;
+    margin-bottom: 25px;
 }
 .input-box input,
-.input-box textarea{
+.input-box1 textarea{
+    margin-bottom: 15px;
     width: 100%;
-    padding: 20px;
+    padding: 16px;
     background: rgba(255,255,255,.05);
-    border: none;
-    outline: none;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 15px;
     color: white;
-    border-radius: 20px;
+    outline: none;
+    box-shadow: 0 0 30px #00f5ff;
+}
+.input-box textarea{
+    height: 150px;
+    /* resize: none; */
+}
+.input-box1 label{
+    position: absolute;
+    left: 10%;
+    top: 51%;
+    color: #00f7ff;
+    transition: 0.3s;
+    pointer-events: none;
 }
 .input-box label{
     position: absolute;
-    left: 20px;
-    top: 20px;
-    transition: 0.4s;
+    left: 15px;
+    top: 16px;
+    color: #aaa;
+    transition: 0.3s;
+    pointer-events: none;
 }
-.input-box input:focus~label,
-.input-box textarea:focus~label{
-    top: -15px;
-    color: #00f5ff;
+.input-box input:focus + label,
+.input-box input:valid + label,
+.input-box textarea:focus + label,
+.input-box textarea:valid + label{
+    top: -19px;
+    left: 12px;
+    padding: 0 8px;
+    /* background: #111; */
+    font-size: 1rem;
+    color: #00f7ff;
 }
 .send-btn{
-    position: relative;
-    overflow: hidden;
-    padding: 20px 45px;
+    width: 100%;
+    padding: 16px;
     border: none;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #00f5ff, #7c3aed);
+    border-radius: 15px;
+    background: linear-gradient(135deg, #7b2fff, #00f7ff);
     color: white;
+    font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 .send-btn:hover{
-    transform: translateY(-8px);
-    box-shadow: 0 0 30px #00f5ff,
-    0 0 80px #7c3aed;
+    transform: translateY(-5px);
+    box-shadow:
+    0 5px 30px rgba(0, 247, 255, 0.3);
+}
+.send-btn:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #64748b;
+    color: #fff;
+}
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
 }
 .success-screen{
     position: fixed;
@@ -178,7 +314,7 @@ body.light-mode .grid{
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition:0.8s;
+    transition: 0.8s;
     z-index: 999999;
 }
 .success-screen.active{
@@ -189,8 +325,8 @@ body.light-mode .grid{
     text-align: center;
 }
 .checkmark{
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -227,4 +363,23 @@ body.light-mode .grid{
         opacity: 0;
     }
 
+}
+/* Project animation*/
+.glass-orb{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -60px;
+    right: -60px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(0, 245, 255, 0.4), transparent);
+    filter: blur(30px);
+    animation: orbFloat 6s ease-in-out infinite;
+}
+@keyframes orbFloat {
+    0%,100%{
+        transform: translateY(0);
+    }50%{
+        transform: translateY(20px);
+    }    
 }
