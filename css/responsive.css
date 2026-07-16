@@ -169,7 +169,7 @@
     }
     .section h2{
         font-size: 6rem;
-        margin-bottom: 70px;
+        margin-bottom: 65px;
     }
     #hero{
         margin: 0;
@@ -220,6 +220,9 @@
     }
     #about ,.about-left{
         padding: 0;
+    }
+    #about h2{
+        margin-left: 5%;
     }
     #about p{
         font-size: 2rem;
