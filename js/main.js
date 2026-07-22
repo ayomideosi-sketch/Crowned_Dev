@@ -94,3 +94,38 @@ form.addEventListener('submit', function(e) {
             }, 3000);
         });
 });
+
+// Typewriter
+const text = document.getElementById("typing-txt");
+const words = [
+    "Passionate Frontend Developer",
+    "Creative UI/UX Designer",
+    "JavaScript Enthusiast",
+    "Tech Enthusiast",
+    "Web Developer"
+];
+let wordIndex = 0;
+let letterIndex = 0;
+let isDelete = false;
+function type(){
+    const presentWord = words[wordIndex];
+    if(isDelete){
+        text.textContent = presentWord.substring(0, letterIndex--);
+    } else {
+        text.textContent = presentWord.substring(0, letterIndex++);
+    }
+
+    let speed = isDelete ? 50 : 100;
+    if(!isDelete && letterIndex > presentWord.length){
+        isDelete = true;
+        speed = 1800;
+    }
+
+    if(isDelete && letterIndex < 0){
+        isDelete = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        speed = 300;
+    }
+    setTimeout(type, speed);
+}
+type()

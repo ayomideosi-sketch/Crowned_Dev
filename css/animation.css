@@ -374,6 +374,7 @@ body.light-mode .contact-features div::before{
     border-radius: 50%;
     background: radial-gradient(rgba(0, 245, 255, 0.4), transparent);
     filter: blur(30px);
+    pointer-events: none;
     animation: orbFloat 6s ease-in-out infinite;
 }
 @keyframes orbFloat {

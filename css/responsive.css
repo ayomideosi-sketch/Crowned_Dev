@@ -71,7 +71,7 @@
         scroll-margin-top: 90px;
     }
     .logo{
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     #toggle{
         /* display: none; */
@@ -169,10 +169,10 @@
     }
     .section h2{
         font-size: 6rem;
-        margin-bottom: 65px;
+        margin-bottom: 70px;
     }
     #hero{
-        margin: 0;
+        margin-: 0;
         padding: 0;
     }
     #hero .hero-content h1{
@@ -220,9 +220,6 @@
     }
     #about ,.about-left{
         padding: 0;
-    }
-    #about h2{
-        margin-left: 5%;
     }
     #about p{
         font-size: 2rem;
@@ -308,20 +305,5 @@
     }
     footer{
         font-size: 25px;
-    }
-}
-
-@media(max-width: 1024px){
-    .logo{
-        font-size: 2rem;
-    }
-    nav{
-        margin-right: 30px;
-    }
-    nav ul span{
-        font-size: 1.3rem;
-    }
-    nav ul li a i{
-        /* font-size: ; */
     }
 }
