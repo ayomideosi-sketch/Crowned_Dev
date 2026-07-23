@@ -677,7 +677,7 @@ footer{
 .reveal{
     opacity: 0;
     transform: translateY(90px);
-    transition: 5s;
+    transition: 2s;
 }
 .reveal.active{
     opacity: 1;
