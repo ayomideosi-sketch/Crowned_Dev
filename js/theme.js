@@ -131,7 +131,7 @@ e => {
 });    
 
 const sendBtn = document.getElementById("sendBtn");
-const waitTime = 2 * 60 * 60 * 1000; //2hrs
+const waitTime = 0.002 * 60 * 60 * 1000; //2hrs
 function countDown(){
     const lastSent = localStorage.getItem("lastMessageTime");
     if(!lastSent){
